@@ -4,6 +4,9 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Enum that collects the different error reporter types available.
+ */
 public enum ReporterType {
 
     STDOUT("stdout"),
@@ -24,11 +27,18 @@ public enum ReporterType {
         this.type = type;
     }
 
+    /**
+     * @return the code code of the given reporter type.
+     */
     public String getCode() {
         if (null != type) return type;
         else return  "unknown";
     }
 
+    /**
+     * @param code identifier of the reporter type
+     * @return the reporter type.
+     */
     public ReporterType getType(final String code){
         if (lookUp.containsKey(code))
             return lookUp.get(code);

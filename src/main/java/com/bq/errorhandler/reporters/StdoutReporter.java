@@ -3,6 +3,9 @@ package com.bq.errorhandler.reporters;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * StdoutReporter is an error reporter that captures the errors and logs them into the standard output.
+ */
 public class StdoutReporter implements ErrorReporter {
 
     private String message;

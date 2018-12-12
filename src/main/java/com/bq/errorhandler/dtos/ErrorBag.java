@@ -8,6 +8,10 @@ import java.util.HashMap;
  */
 public class ErrorBag extends HashMap<String, String> {
 
+    /**
+     * Creates and returns an empty ErrorBag.
+     * @return the empty ErrorBag instance.
+     */
     public static ErrorBag empty() {
         return new ErrorBag();
     }
