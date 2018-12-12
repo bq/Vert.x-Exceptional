@@ -14,13 +14,13 @@ in order to support any error desired by the user.
 
 To pull in this library, simply copy this dependency into your `pom.xml`:
 
-````
+```xml
 <dependency>
   <groupId>com.bq</groupId>
   <artifactId>errorhandler</artifactId>
   <version>1.0</version>
 </dependency>
-````
+```
 
 Vertx Exceptional by default is able to report the errors into the terminal, but
 it can be integrated with external tracking software such as Sentry. It is also
@@ -29,7 +29,7 @@ correspondent status codes and messages.
 
 Below there is an example of how you can start using it within a Vertx handler:
 
-````
+```java
 ...
 
 
@@ -47,19 +47,19 @@ router.get("/ping").handler(routingContext -> {
 });
 
 ...
-````
+```
 
 Assuming `unsafeMethod()` throws an exception which is considered to be an internal 
 server error, the method `handleError()` will return the following JSON response:
 
-````
+```json
 {
   "status": 500,
   "errorCode": 1,
   "msg": "Something unpredictable blow up on your server!",
   "causes": {}
 }
-````
+```
 
 Every error handled by Vertx Exceptional will have this format, keeping it easy 
 for future API clients to manage the errors encountered.
@@ -72,15 +72,15 @@ using one of the methods detailed below.
 
 Via the properties file `sentry.properties` found in your project's classpath:
 
-````
+```properties
 dsn=https://public:private@host:port/1
-````
+```
 
 Via a System Environment Variable:
 
-````
+```properties
 SENTRY_DSN=https://public:private@host:port/1
-````
+```
 
 Using either one of the methods shown above, Vertx Exceptional will be prepared
 to automatically send to Sentry the information of all the errors handled.
@@ -97,7 +97,7 @@ For example, if you prefer to use Rollbar, you would have to implement the inter
 `ErrorReporter` with the necessary code to make it work and finally inject it into 
 the `ErrorHandler` constructor.
 
-````
+```java
 package com.example.demo;
 
 import com.bq.errorhandler.reporters.ErrorReporter;
@@ -113,16 +113,16 @@ public class RollbarReporter implements ErrorReporter {
     @Override
     public void capture(Throwable throwable) {...}
 }
-````
+```
 
-````
+```java
 ...
 
 ErrorReporter errorReporter = new RollbarReporter();
 ErrorHandler errorHandler = new ErrorHandler(errorReporter);
 
 ...
-````
+```
 
 ## Running Vert.x Exceptional as a verticle
 _UNDER CONSTRUCTION_ 
