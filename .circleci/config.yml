@@ -5,7 +5,7 @@ jobs:
     working_directory: ~/errorhandler
 
     docker:
-      - image: circleci/openjdk:8-jdk-browsers
+      - image: circleci/openjdk:8u171-jdk
 
     steps:
 
@@ -27,4 +27,4 @@ jobs:
           path: target/surefire-reports
 
       - store_artifacts:
-          path: target/demo-java-spring-1.0.jar
+          path: target/errorhandler-1.0.jar

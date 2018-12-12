@@ -1,5 +1,7 @@
 # Vert.x Exceptional
 
+[![CircleCI](https://circleci.com/gh/bq/Vert.x-Exceptional/tree/master.svg?style=svg)](https://circleci.com/gh/bq/Vert.x-Exceptional/tree/master)
+
 Vertx Exceptional is a minimalist error handling library. It is intended 
 for reporting and rendering errors using the features provided by Vertx.
 It is designed to be customizable so you can adapt its behaviour to your
